@@ -2,7 +2,9 @@ package com.order.bean;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,7 +23,7 @@ public class Order {
 	private Long id;
     private String customerEmail;
     private String customerAddress;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<OrderItem> items;
 
 }
